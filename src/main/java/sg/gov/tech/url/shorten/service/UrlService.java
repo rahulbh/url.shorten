@@ -29,7 +29,7 @@ public class UrlService implements BaseService<String, Url>{
     public Url generateAndPersist(String longUrl){
         Url url = Url.builder().longUrl(longUrl).build();
         Integer idInBase10 = urlDao.insert(longUrl);
-        url.setShortUrl("http://localhost:8080/" + BaseConversionUtility.encodeTo62(idInBase10));
+        url.setShortUrl(BaseConversionUtility.encodeTo62(idInBase10));
         logger.info("Generated Url: [{}]", url);
         return url;
     }

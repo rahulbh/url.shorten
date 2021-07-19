@@ -5,9 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<script>
+window.onload = function(){
+var base_url = window.location.origin;
+  document.getElementById('relativeurl').innerHTML = base_url + '/' + document.getElementById('relativeurl').innerHTML;
+};
+</script>
 <h1>Error</h1>
-<div>
-<h2> Oops !! this is awkward ..</h2>
+<div> Invalid Short Url: <p id="relativeurl" th:text="${responseWrapper.url.shortUrl}" />
 </div>
 <a href="/">Submit another message</a>
 </body>

@@ -43,6 +43,7 @@ public class UrlProcessor implements IBaseProcessor<String, ResponseWrapper> {
         else
         {
             responseWrapperBuilder.isValid(false);
+            responseWrapperBuilder.url(Url.builder().shortUrl(shortUrl).build());
         }
         return responseWrapperBuilder.build();
     }

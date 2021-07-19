@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 import sg.gov.tech.url.shorten.model.ResponseWrapper;
 import sg.gov.tech.url.shorten.model.Url;
@@ -26,18 +27,18 @@ public class RedirectController {
     }
 
     @GetMapping("/{shortUrl:.*}")
-    public RedirectView redirect(@PathVariable String shortUrl,  Model model){
+    public RedirectView redirect(@PathVariable String shortUrl, Model model, RedirectAttributes redirectAttributes){
         logger.info("ShortUrl: [{}]", shortUrl);
         ResponseWrapper responseWrapper = urlProcessor.retrieveUrl(shortUrl);
 
-        RedirectView redirectView = new RedirectView();
+        final RedirectView redirectView = new RedirectView("", true);
         if (responseWrapper.isValid()){
             redirectView.setUrl(responseWrapper.getUrl().getLongUrl());
         }
         else
         {
             redirectView.setUrl("/error/redirect");
-            model.addAttribute("responseWrapper", responseWrapper);
+            redirectAttributes.addFlashAttribute("responseWrapper", responseWrapper);
         }
         return redirectView;
     }
