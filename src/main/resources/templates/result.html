@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Url Shortener for Gov Tech</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<div th:switch="${responseWrapper.isValid}">
+    <div th:case="true">
+        <p th:text="'longUrl: ' + ${responseWrapper.url.longUrl}" />
+        <p th:text="'shortUrl: ' "/><a th:href="${responseWrapper.url.shortUrl}"><p th:text="${responseWrapper.url.shortUrl}" /></a>
+    </div>
+<div th:case="*">
+    <p>Invalid Url</p>
+</div>
+</div>
+<a href="/">Submit another message</a>
+</body>
+</html>
