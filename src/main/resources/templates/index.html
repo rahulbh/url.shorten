@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
+<h1>Generate your own short url, Now !</h1>
 <form action="#" th:action="@{/createShortUrl}" th:object="${url}" method="post">
-    <p>Id: <input type="text" th:field="*{longUrl}" /></p>
+    <p>Enter Long Url Here:  <input type="text" th:field="*{longUrl}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </body>

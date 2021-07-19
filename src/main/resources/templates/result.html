@@ -18,7 +18,7 @@ var base_url = window.location.origin;
         <p th:text="'shortUrl: ' "/><a th:href="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}"><p id="relativeurl" th:text="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}" /></a>
     </div>
 <div th:case="*">
-    <p>Invalid Url</p>
+    <p>Invalid Url type. Please ensure that the url comprises of protocol as well as top level domain</p>
 </div>
 </div>
 <a href="/">Submit another message</a>
