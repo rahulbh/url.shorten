@@ -31,7 +31,7 @@ public class UrlService implements BaseService<String, Url>{
         Url url = Url.builder().longUrl(longUrl).build();
         Integer idInBase10 = urlDao.insert(longUrl);
         url.setShortUrl(BaseConversionUtility.encodeTo62(idInBase10));
-        logger.info("Generated Url: [{}]", url);
+        logger.debug("Generated Url: [{}]", url);
         return url;
     }
 

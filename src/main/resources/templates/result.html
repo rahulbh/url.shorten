@@ -3,6 +3,9 @@
 <head>
     <title>Url Shortener for Gov Tech</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <script>
@@ -12,16 +15,23 @@ var base_url = window.location.origin;
 };
 </script>
 <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
 <h1>Result</h1>
 <div th:switch="${responseWrapper.isValid}">
     <div th:case="true">
-        <p th:text="'longUrl: ' + ${responseWrapper.url.longUrl}" />
-        <p th:text="'shortUrl: ' "/><a th:href="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}"><p id="relativeurl" th:text="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}" /></a>
+        <p th:text="'Long Url: ' + ${responseWrapper.url.longUrl}" />
+        <div style="display:inline" th:text="'Short Url: ' " /><a th:href="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}"><div style="display:inline" id="relativeurl" th:text="@{/{shortUrl}(shortUrl=${responseWrapper.url.shortUrl})}" /></a>
     </div>
 <div th:case="*">
     <p>Invalid Url type. Please ensure that the url comprises of protocol as well as top level domain</p>
 </div>
 </div>
-<a href="/">Submit another message</a>
+<br>
+<a href="/"> <button type="submit" class="btn btn-primary">Shorten another url</button></a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

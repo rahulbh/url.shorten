@@ -18,12 +18,11 @@ public class UrlProcessor implements IBaseProcessor<String, ResponseWrapper> {
     UrlService urlService;
 
     @Override
-    public ResponseWrapper processCreateRequest(String longUrl) throws InconsistentRequestException {
+    public ResponseWrapper generateUrl(String longUrl) throws InconsistentRequestException {
 
         ResponseWrapper.ResponseWrapperBuilder responseWrapperBuilder = ResponseWrapper.builder();
 
         boolean isValid = urlService.validate(longUrl);
-
         responseWrapperBuilder.isValid(isValid);
 
         if (isValid) {

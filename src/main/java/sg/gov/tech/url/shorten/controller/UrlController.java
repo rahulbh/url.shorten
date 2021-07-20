@@ -23,7 +23,7 @@ public class UrlController {
     public String createShortUrl(@ModelAttribute Url url, Model model) {
 
         try {
-            ResponseWrapper responseWrapper = urlProcessor.processCreateRequest(url.getLongUrl());
+            ResponseWrapper responseWrapper = urlProcessor.generateUrl(url.getLongUrl());
             model.addAttribute("responseWrapper", responseWrapper);
             return "result";
         } catch (InconsistentRequestException exception) {
