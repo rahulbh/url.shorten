@@ -1,6 +1,7 @@
 package sg.gov.tech.url.shorten.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -20,7 +21,7 @@ public class UrlDao implements BaseRepositoryDao<String, Integer, List<Url>> {
     JdbcTemplate jdbcTemplate;
 
     @Override
-    public Integer insert(String longUrl){
+    public Integer insert(String longUrl) throws Exception {
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("URL").usingGeneratedKeyColumns("id");
 
@@ -38,7 +39,7 @@ public class UrlDao implements BaseRepositoryDao<String, Integer, List<Url>> {
     }
 
     @Override
-    public List<Url> fetch(String id) {
+    public List<Url> fetch(String id) throws DataAccessException {
         return jdbcTemplate.query("Select ID, LONGURL from URL where ID = ?", new BeanPropertyRowMapper<>(Url.class), id);
     }
 

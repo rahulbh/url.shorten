@@ -11,6 +11,7 @@ var base_url = window.location.origin;
   document.getElementById('relativeurl').innerHTML = base_url + document.getElementById('relativeurl').innerHTML;
 };
 </script>
+<br>
 <h1>Result</h1>
 <div th:switch="${responseWrapper.isValid}">
     <div th:case="true">

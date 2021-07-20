@@ -915,3 +915,12 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/lenov
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 175 more
+2021-07-20 15:25:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LONGURL VARCHAR(255)": "'https://www.hblahblggahblahblahblahbbbbbblahblahhblahblah.com/blahblahblahblahblahblahhblahblahblahblahblahbbbbbblahblahhblahbl... (258)"; SQL statement:
+INSERT INTO URL (LONGURL, CREATIONTIME) VALUES(?, ?) [22001-200]
+2021-07-20 17:05:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LONGURL VARCHAR(255)": "'https://www.hblahblggahblahblahblahbbbbbblahblahhblahblah.com/blahblahblahblahblahblahhblahblahblahblahblahbbbbbblahblahhblahbl... (258)"; SQL statement:
+INSERT INTO URL (LONGURL, CREATIONTIME) VALUES(?, ?) [22001-200]
+2021-07-20 17:12:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LONGURL VARCHAR(255)": "'https://www.hblahblggahblahblahblahbbbbbblahblahhblahblah.com/blahblahblahblahblahblahhblahblahblahblahblahbbbbbblahblahhblahbl... (258)"; SQL statement:
+INSERT INTO URL (LONGURL, CREATIONTIME) VALUES(?, ?) [22001-200]
